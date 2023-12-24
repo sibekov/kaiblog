@@ -4,7 +4,11 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello Kids!!!")
+    if request.method == "GET":
+        return HttpResponse("This was a GET request")
+    elif request.method == "POST":
+        return HttpResponse("This was a POST request")
+
 
 def about(request):
     return HttpResponse("This is the about page")
